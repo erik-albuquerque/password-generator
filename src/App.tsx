@@ -1,6 +1,6 @@
 const App = () => { 
   return (
-    <div>password generator</div>
+    <p className="text-red-400">password generator</p>
   )
 }
 
