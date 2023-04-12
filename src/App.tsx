@@ -7,7 +7,7 @@ const App = () => {
       <ReactFlow.Background 
         gap={12}
         size={2}
-        color={colors.gray[700]}
+        color="transparent"
       />
       <ReactFlow.Controls />
     </ReactFlow.Root>
