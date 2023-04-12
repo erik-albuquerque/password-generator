@@ -1,9 +1,12 @@
 import { ReactFlow } from './components'
-import colors from 'tailwindcss/colors'
+import { NODE_TYPES, INITIALS_NODES } from './constants'
 
 const App = () => {
   return (
-    <ReactFlow.Root>
+    <ReactFlow.Root
+      nodeTypes={NODE_TYPES}
+      nodes={INITIALS_NODES}
+    >
       <ReactFlow.Background 
         gap={12}
         size={2}
