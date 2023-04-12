@@ -15,7 +15,19 @@ const INITIALS_NODES = [
     },
     data: {
       width: 200,
-      height: 103
+      height: 100
+    }
+  },
+  {
+    id: crypto.randomUUID(),
+    type: 'rectangle',
+    position: {
+      x: 600,
+      y: 400
+    },
+    data: {
+      width: 200,
+      height: 100
     }
   }
 ] satisfies Node[]
