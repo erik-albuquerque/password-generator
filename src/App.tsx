@@ -1,6 +1,15 @@
-const App = () => { 
+import { ReactFlow } from './components'
+
+const App = () => {
   return (
-    <p className="text-red-400">password generator</p>
+    <ReactFlow.Root>
+      <ReactFlow.Background 
+        gap={12}
+        size={2}
+        color="#393939"
+      />
+      <ReactFlow.Controls />
+    </ReactFlow.Root>
   )
 }
 
