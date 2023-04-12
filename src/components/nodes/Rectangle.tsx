@@ -1,4 +1,4 @@
-import { NodeProps } from 'reactflow'
+import { NodeProps, Handle, Position } from 'reactflow'
 import clsx from 'clsx'
 import { Overwrite } from '../../@types'
 
@@ -17,7 +17,12 @@ const Rectangle: React.FC<RectangleProps> = ({ data }: RectangleProps) => {
         data.width ? `w-[${data.width}px]` : "w-[200px]",
         data.height ? `h-[${data.height}px]` : "h-[100px]"
       )}
-    />
+    >
+      <Handle id="top" type="source" position={Position.Top} />
+      <Handle id="right" type="source" position={Position.Right} />
+      <Handle id="left" type="source" position={Position.Left} />
+      <Handle id="bottom" type="source" position={Position.Bottom} />
+    </div>
   )
 }
 
