@@ -1,4 +1,5 @@
 import { ReactFlow } from './components'
+import colors from 'tailwindcss/colors'
 
 const App = () => {
   return (
@@ -6,7 +7,7 @@ const App = () => {
       <ReactFlow.Background 
         gap={12}
         size={2}
-        color="#393939"
+        color={colors.gray[700]}
       />
       <ReactFlow.Controls />
     </ReactFlow.Root>
