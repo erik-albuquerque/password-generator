@@ -17,11 +17,6 @@ const App = () => {
       onEdgesChange={onEdgesChange}
       connectionMode={ConnectionMode.Loose}
     >
-      <ReactFlow.Background 
-        gap={12}
-        size={2}
-        color="transparent"
-      />
       <ReactFlow.Controls />
     </ReactFlow.Root>
   )
