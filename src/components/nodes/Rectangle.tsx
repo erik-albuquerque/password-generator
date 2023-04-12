@@ -12,11 +12,8 @@ type RectangleProps = Overwrite<NodeProps, {
 const Rectangle: React.FC<RectangleProps> = ({ data }: RectangleProps) => {
   return (
     <div
-      className={clsx(
-        "bg-gray-800 rounded-lg border border-gray-700",
-        data.width ? `w-[${data.width}px]` : "w-[200px]",
-        data.height ? `h-[${data.height}px]` : "h-[100px]"
-      )}
+      className="bg-gray-800 rounded-lg border border-gray-700 w-full h-full min-w-[200px] min-h-[100px]"
+      style={{ width: `${data.width}px`, height: `${data.height}px`}}
     >
       <Handle 
         id="top" 

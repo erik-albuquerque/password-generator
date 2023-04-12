@@ -26,8 +26,8 @@ const INITIALS_NODES = [
       y: 400
     },
     data: {
-      width: 200,
-      height: 100
+      width: 281,
+      height: 143
     }
   }
 ] satisfies Node[]
