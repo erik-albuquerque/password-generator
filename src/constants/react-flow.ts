@@ -1,5 +1,5 @@
 import { Node } from 'reactflow'
-import { Rectangle } from '../components'
+import { Rectangle, DefaultEdge } from '../components'
 
 const NODE_TYPES = {
   rectangle: Rectangle
@@ -15,9 +15,25 @@ const INITIALS_NODES = [
     },
     data: {
       width: 200,
-      height: 103
+      height: 100
+    }
+  },
+  {
+    id: crypto.randomUUID(),
+    type: 'rectangle',
+    position: {
+      x: 600,
+      y: 400
+    },
+    data: {
+      width: 281,
+      height: 143
     }
   }
 ] satisfies Node[]
 
-export { NODE_TYPES, INITIALS_NODES }
+const EDGE_TYPES = {
+  default: DefaultEdge
+}
+
+export { NODE_TYPES, EDGE_TYPES, INITIALS_NODES }
