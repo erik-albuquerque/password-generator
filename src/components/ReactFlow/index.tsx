@@ -1,16 +1,16 @@
-import ReactFlowRoot from 'reactflow'
+import ReactFlowRoot, { ReactFlowProps } from 'reactflow'
 import 'reactflow/dist/style.css'
 
 import { Background, Controls } from './components'
 
-type RootProps = {
+type RootProps = ReactFlowProps & {
   children: React.ReactNode
 }
 
-const Root: React.FC<RootProps> = ({ children }: RootProps) => {
+const Root: React.FC<RootProps> = ({ children, ...rest }: RootProps) => {
   return (
     <div className="w-screen h-screen">
-      <ReactFlowRoot>{children}</ReactFlowRoot>
+      <ReactFlowRoot {...rest}>{children}</ReactFlowRoot>
     </div>
   )
 }
