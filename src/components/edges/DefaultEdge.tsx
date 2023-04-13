@@ -10,7 +10,7 @@ const DefaultEdge: React.FC<EdgeProps> = ({
   targetPosition,
   style = {},
   data,
-  markerEnd,
+  markerEnd
 }: EdgeProps) => {
   const [edgePath] = getSmoothStepPath({
     sourceX,
@@ -18,14 +18,14 @@ const DefaultEdge: React.FC<EdgeProps> = ({
     sourcePosition,
     targetX,
     targetY,
-    targetPosition,
+    targetPosition
   })
 
   return (
     <path
       id={id}
       style={style}
-      className="react-flow__edge-path stroke-2 stroke-gray-400"
+      className='react-flow__edge-path stroke-2 stroke-gray-400'
       d={edgePath}
       markerEnd={markerEnd}
     />

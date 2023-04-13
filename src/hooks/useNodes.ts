@@ -7,7 +7,7 @@ const useNodes = () => {
   return {
     nodes,
     setNodes,
-    onNodesChange,
+    onNodesChange
   }
 }
 

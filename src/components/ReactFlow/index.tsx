@@ -9,7 +9,7 @@ type RootProps = ReactFlowProps & {
 
 const Root: React.FC<RootProps> = ({ children, ...rest }: RootProps) => {
   return (
-    <div className="w-screen h-screen">
+    <div className='w-screen h-screen'>
       <ReactFlowRoot {...rest}>{children}</ReactFlowRoot>
     </div>
   )

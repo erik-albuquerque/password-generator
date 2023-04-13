@@ -10,7 +10,6 @@ const useEdges = () => {
     return setEdges((edges) => addEdge(connection, edges))
   }, [])
 
-
   return {
     edges,
     setEdges,
