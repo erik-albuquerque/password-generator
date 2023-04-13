@@ -1,16 +1,7 @@
 import { NodeProps, Position } from 'reactflow'
 import { Overwrite } from '../../@types'
 import { DotHandle } from './components'
-
-type Dot = {
-  id: string
-  type: 'source' | 'target'
-  position: 'Left' | 'Right' | 'Top' | 'Bottom'
-  left?: number
-  right?: number
-  top?: number
-  bottom?: number
-}
+import { Dot } from './@types'
 
 type RectangleProps = Overwrite<
   NodeProps,
