@@ -15,7 +15,27 @@ const INITIALS_NODES = [
     },
     data: {
       width: 200,
-      height: 100
+      height: 100,
+      dots: [
+        {
+          id: crypto.randomUUID(),
+          type: 'source',
+          position: 'Bottom',
+          left: 20
+        },
+        {
+          id: crypto.randomUUID(),
+          type: 'source',
+          position: 'Left',
+          top: 20
+        },
+        {
+          id: crypto.randomUUID(),
+          type: 'source',
+          position: 'Right',
+          top: 70
+        }
+      ]
     }
   },
   {
@@ -27,7 +47,26 @@ const INITIALS_NODES = [
     },
     data: {
       width: 281,
-      height: 143
+      height: 143,
+      dots: [
+        {
+          id: crypto.randomUUID(),
+          type: 'source',
+          position: 'Top',
+          left: 200
+        },
+        {
+          id: crypto.randomUUID(),
+          type: 'source',
+          position: 'Bottom',
+          left: 60
+        },
+        {
+          id: crypto.randomUUID(),
+          type: 'source',
+          position: 'Right'
+        }
+      ]
     }
   }
 ] satisfies Node[]

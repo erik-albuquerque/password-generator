@@ -1,11 +1,22 @@
-import { NodeProps, Handle, Position } from 'reactflow'
-import clsx from 'clsx'
+import { NodeProps, Position } from 'reactflow'
 import { Overwrite } from '../../@types'
+import { DotHandle } from './components'
+
+type Dot = {
+  id: string
+  type: 'source' | 'target'
+  position: 'Left' | 'Right' | 'Top' | 'Bottom'
+  left?: number
+  right?: number
+  top?: number
+  bottom?: number
+}
 
 type RectangleProps = Overwrite<NodeProps, {
   data: {
     width: number
     height: number
+    dots?: Dot[]
   }
 }>
 
@@ -15,33 +26,19 @@ const Rectangle: React.FC<RectangleProps> = ({ data }: RectangleProps) => {
       className="bg-gray-800 rounded-lg border border-gray-700 w-full h-full min-w-[200px] min-h-[100px]"
       style={{ width: `${data.width}px`, height: `${data.height}px`}}
     >
-      <Handle 
-        id="top" 
-        type="source" 
-        position={Position.Top}
-        className="-top-2 w-2 h-2 bg-gray-400 border-none"
+      {data.dots?.map(dot => (
+        <DotHandle 
+        key={dot.id}
+        type={dot.type}
+        position={Position[dot.position]} 
+        style={{
+          left: dot.left,
+          right: dot.right,
+          top: dot.top,
+          bottom: dot.bottom
+        }}
       />
-
-      <Handle 
-        id="right" 
-        type="source" 
-        position={Position.Right} 
-        className="-right-2 w-2 h-2 bg-gray-400 border-none"
-      />
-
-      <Handle 
-        id="left" 
-        type="source" 
-        position={Position.Left} 
-        className="-left-2 w-2 h-2 bg-gray-400 border-none"
-      />
-
-      <Handle 
-        id="bottom" 
-        type="source" 
-        position={Position.Bottom} 
-        className="-bottom-2 w-2 h-2 bg-gray-400 border-none"
-      />
+      ))}
     </div>
   )
 }
