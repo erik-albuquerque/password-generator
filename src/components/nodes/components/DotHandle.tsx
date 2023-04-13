@@ -11,10 +11,7 @@ const DotHandle = ({ position, type, ...rest }: DotHandleProps) => {
       id={position}
       type={type}
       position={position}
-      className={clsx(
-        'w-2 h-2 bg-gray-400 border-none',
-        `-${position}-2`
-      )}
+      className={clsx('w-2 h-2 bg-gray-400 border-none', `-${position}-2`)}
       {...rest}
     />
   )
