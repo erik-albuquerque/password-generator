@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({ data }: ButtonProps) => {
       <button
         type='button'
         className={clsx(
-          'flex flex-row items-center gap-1 font-semibold text-white transition-colors py-[14px] px-4 rounded-full',
+          'flex flex-row items-center gap-1 font-medium text-white transition-colors py-3 px-4 rounded-full',
           data.className
         )}
         onClick={data?.action}

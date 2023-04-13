@@ -17,7 +17,7 @@ type RectangleProps = Overwrite<
 const Rectangle: React.FC<RectangleProps> = ({ data }: RectangleProps) => {
   return (
     <div
-      className='bg-gray-800 rounded-lg border border-gray-700 w-full h-full min-w-[200px] min-h-[100px]'
+      className='bg-gray-800 rounded-2xl border border-gray-700 w-full h-full min-w-[200px] min-h-[100px]'
       style={{ width: `${data.width}px`, height: `${data.height}px` }}
     >
       {data.dots?.map((dot) => (
