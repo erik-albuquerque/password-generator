@@ -13,12 +13,12 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'rectangle',
     position: {
-      x: 450,
-      y: 300
+      x: 571,
+      y: 240
     },
     data: {
       width: 200,
-      height: 100,
+      height: 103,
       dots: [
         {
           id: crypto.randomUUID(),
@@ -30,13 +30,13 @@ const INITIALS_NODES = [
           id: crypto.randomUUID(),
           type: 'source',
           position: 'Left',
-          top: 20
+          top: 21
         },
         {
           id: crypto.randomUUID(),
           type: 'source',
           position: 'Right',
-          top: 60
+          top: 63
         }
       ]
     }
@@ -45,8 +45,8 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'rectangle',
     position: {
-      x: 450,
-      y: 485
+      x: 570,
+      y: 422
     },
     data: {
       width: 281,
@@ -62,12 +62,13 @@ const INITIALS_NODES = [
           id: crypto.randomUUID(),
           type: 'source',
           position: 'Bottom',
-          left: 60
+          left: 84
         },
         {
           id: crypto.randomUUID(),
           type: 'source',
-          position: 'Right'
+          position: 'Right',
+          top: 73
         }
       ]
     }
@@ -76,8 +77,8 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'button',
     position: {
-      x: 700,
-      y: 334
+      x: 817,
+      y: 279
     },
     data: {
       className: 'bg-purple-500 hover:bg-purple-500/90',
@@ -100,8 +101,8 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'button',
     position: {
-      x: 300,
-      y: 354
+      x: 443,
+      y: 292
     },
     data: {
       className: 'bg-purple-500 hover:bg-purple-500/90',
@@ -119,8 +120,8 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'button',
     position: {
-      x: 463,
-      y: 653
+      x: 608,
+      y: 595
     },
     data: {
       className: 'bg-gray-700 hover:bg-gray-700/80',
@@ -144,8 +145,8 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'label',
     position: {
-      x: 425,
-      y: 420
+      x: 548,
+      y: 365
     },
     data: {
       children: <span>Length</span>,
@@ -167,17 +168,18 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'label',
     position: {
-      x: 366,
-      y: 500
+      x: 493,
+      y: 432
     },
     data: {
+      className: '!py-3 !px-2',
       children: (
-        <input 
-        type='number'
-        defaultValue={20}
-        min={1}
-        max={99}
-        className='bg-transparent border-none outline-none max-w-[35px] text-xl text-center'
+        <input
+          type='number'
+          defaultValue={20}
+          min={1}
+          max={99}
+          className='bg-transparent border-none font-medium outline-none max-w-[35px] text-center'
         />
       ),
       dots: [
@@ -193,8 +195,8 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'label',
     position: {
-      x: 760,
-      y: 530
+      x: 897,
+      y: 470
     },
     data: {
       children: <span>Strength</span>,
@@ -216,12 +218,12 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'label',
     position: {
-      x: 785,
-      y: 605
+      x: 924,
+      y: 548
     },
     data: {
       children: <span>💪</span>,
-      className: '!py-1',
+      className: '!py-1 !px-3',
       dots: [
         {
           id: crypto.randomUUID(),
