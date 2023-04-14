@@ -291,8 +291,6 @@ const INITIALS_EDGES = [
   }
 ] satisfies Edge[]
 
-console.log(INITIALS_EDGES)
-
 const EDGE_TYPES = {
   default: DefaultEdge
 }

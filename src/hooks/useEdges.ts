@@ -1,10 +1,9 @@
 import { useCallback } from 'react'
-import { useEdgesState, Edge, Connection, addEdge } from 'reactflow'
-
-const initialsEdges = [] satisfies Edge[]
+import { useEdgesState, Connection, addEdge } from 'reactflow'
+import { INITIALS_EDGES } from '../constants'
 
 const useEdges = () => {
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialsEdges)
+  const [edges, setEdges, onEdgesChange] = useEdgesState(INITIALS_EDGES)
 
   const onConnect = useCallback((connection: Connection) => {
     return setEdges((edges) => addEdge(connection, edges))
