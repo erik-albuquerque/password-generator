@@ -1,14 +1,14 @@
+/* eslint-disable @typescript-eslint/ban-types */
 import clsx from 'clsx'
-
 import { getCapitalLetters, getSymbols } from './utils'
+import { passwordState } from '../../recoil'
+import { useRecoilValue } from 'recoil'
 
-type PasswordTextProps = {
-  password: string
-}
+type PasswordTextProps = {}
 
-const PasswordText: React.FC<PasswordTextProps> = ({
-  password
-}: PasswordTextProps) => {
+const PasswordText: React.FC<PasswordTextProps> = () => {
+  const password = useRecoilValue(passwordState)
+
   const capitalLetters = getCapitalLetters(password)
 
   const symbols = getSymbols(password)

@@ -1,8 +1,13 @@
 import { useNodesState } from 'reactflow'
-import { INITIALS_NODES } from '../constants'
+import { useFlow } from './useFlow'
+import { NodeCustomProps } from '../@types'
 
 const useNodes = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(INITIALS_NODES)
+  const { INITIALS_NODES } = useFlow()
+
+  const [nodes, setNodes, onNodesChange] = useNodesState(
+    INITIALS_NODES as NodeCustomProps[]
+  )
 
   return {
     nodes,
