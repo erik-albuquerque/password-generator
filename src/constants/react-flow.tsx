@@ -4,7 +4,8 @@ import {
   DefaultEdge,
   Button,
   Label,
-  AddonButton
+  AddonButton,
+  PasswordText
 } from '../components'
 import { IoCopy } from 'react-icons/io5'
 
@@ -132,7 +133,9 @@ const INITIALS_NODES = [
       width: 281,
       height: 143,
       title: 'Password',
-      children: <>test</>,
+      headerStyle: 'mt-4',
+      className: 'gap-6',
+      children: <PasswordText password='sqDJJpl?£z=BUHOjm' />,
       dots: [
         {
           id: crypto.randomUUID(),
