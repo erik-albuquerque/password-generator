@@ -1,6 +1,5 @@
 import { NodeProps, Position } from 'reactflow'
-import { Overwrite } from '../../@types'
-import { Dot } from './@types'
+import { Overwrite, Dot } from '../../@types'
 import { DotHandle } from './components'
 import clsx from 'clsx'
 
