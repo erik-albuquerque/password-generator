@@ -3,6 +3,9 @@ export default {
   content: ['index.html', './src/**/*.tsx'],
   theme: {
     extend: {
+      fontFamily: {
+        sans: 'Inter, sans-serif'
+      },
       colors: {
         black: '#000000',
         white: '#FFFFFF',

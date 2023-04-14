@@ -230,7 +230,7 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'label',
     position: {
-      x: 548,
+      x: 550,
       y: 365
     },
     data: {
@@ -280,7 +280,7 @@ const INITIALS_NODES = [
     id: crypto.randomUUID(),
     type: 'label',
     position: {
-      x: 897,
+      x: 900,
       y: 470
     },
     data: {
