@@ -26,6 +26,7 @@ const INITIALS_NODES = [
       width: 200,
       height: 103,
       title: 'Addons',
+      headerStyle: 'mt-2',
       children: (
         <div className='flex flex-row items-center gap-4'>
           <AddonButton>
