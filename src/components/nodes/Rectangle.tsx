@@ -23,6 +23,7 @@ const Rectangle: React.FC<RectangleProps> = ({ data }: RectangleProps) => {
       {data.dots?.map((dot) => (
         <DotHandle
           key={dot.id}
+          id={dot.id}
           type={dot.type}
           position={Position[dot.position]}
           style={{

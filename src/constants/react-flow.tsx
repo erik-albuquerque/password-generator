@@ -1,4 +1,4 @@
-import { Node } from 'reactflow'
+import { Node, Edge } from 'reactflow'
 import { Rectangle, DefaultEdge, Button, Label } from '../components'
 import { IoCopy } from 'react-icons/io5'
 
@@ -23,14 +23,14 @@ const INITIALS_NODES = [
         {
           id: crypto.randomUUID(),
           type: 'source',
-          position: 'Bottom',
-          left: 20
+          position: 'Left',
+          top: 21
         },
         {
           id: crypto.randomUUID(),
           type: 'source',
-          position: 'Left',
-          top: 21
+          position: 'Bottom',
+          left: 20
         },
         {
           id: crypto.randomUUID(),
@@ -110,7 +110,7 @@ const INITIALS_NODES = [
       dots: [
         {
           id: crypto.randomUUID(),
-          type: 'target',
+          type: 'source',
           position: 'Top'
         }
       ]
@@ -153,7 +153,7 @@ const INITIALS_NODES = [
       dots: [
         {
           id: crypto.randomUUID(),
-          type: 'target',
+          type: 'source',
           position: 'Top'
         },
         {
@@ -185,7 +185,7 @@ const INITIALS_NODES = [
       dots: [
         {
           id: crypto.randomUUID(),
-          type: 'target',
+          type: 'source',
           position: 'Top'
         }
       ]
@@ -235,8 +235,66 @@ const INITIALS_NODES = [
   }
 ] satisfies Node[]
 
+const INITIALS_EDGES = [
+  {
+    id: crypto.randomUUID(),
+    source: INITIALS_NODES[0].id,
+    target: INITIALS_NODES[3].id,
+    sourceHandle: INITIALS_NODES[0].data.dots[0].id,
+    targetHandle: 'top'
+  },
+  {
+    id: crypto.randomUUID(),
+    source: INITIALS_NODES[0].id,
+    target: INITIALS_NODES[5].id,
+    sourceHandle: INITIALS_NODES[0].data.dots[1].id,
+    targetHandle: 'top'
+  },
+  {
+    id: crypto.randomUUID(),
+    source: INITIALS_NODES[0].id,
+    target: INITIALS_NODES[2].id,
+    sourceHandle: INITIALS_NODES[0].data.dots[2].id,
+    targetHandle: 'left'
+  },
+  {
+    id: crypto.randomUUID(),
+    source: INITIALS_NODES[1].id,
+    target: INITIALS_NODES[2].id,
+    sourceHandle: INITIALS_NODES[1].data.dots[0].id,
+    targetHandle: 'bottom'
+  },
+  {
+    id: crypto.randomUUID(),
+    source: INITIALS_NODES[1].id,
+    target: INITIALS_NODES[4].id,
+    sourceHandle: INITIALS_NODES[1].data.dots[1].id
+  },
+  {
+    id: crypto.randomUUID(),
+    source: INITIALS_NODES[1].id,
+    target: INITIALS_NODES[7].id,
+    sourceHandle: INITIALS_NODES[1].data.dots[2].id,
+    targetHandle: 'left'
+  },
+  {
+    id: crypto.randomUUID(),
+    source: INITIALS_NODES[5].id,
+    target: INITIALS_NODES[6].id,
+    sourceHandle: 'left'
+  },
+  {
+    id: crypto.randomUUID(),
+    source: INITIALS_NODES[7].id,
+    target: INITIALS_NODES[8].id,
+    sourceHandle: INITIALS_NODES[7].data.dots[1].id
+  }
+] satisfies Edge[]
+
+console.log(INITIALS_EDGES)
+
 const EDGE_TYPES = {
   default: DefaultEdge
 }
 
-export { NODE_TYPES, EDGE_TYPES, INITIALS_NODES }
+export { NODE_TYPES, EDGE_TYPES, INITIALS_NODES, INITIALS_EDGES }
