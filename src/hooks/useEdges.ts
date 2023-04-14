@@ -5,9 +5,12 @@ import { INITIALS_EDGES } from '../constants'
 const useEdges = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState(INITIALS_EDGES)
 
-  const onConnect = useCallback((connection: Connection) => {
-    return setEdges((edges) => addEdge(connection, edges))
-  }, [])
+  const onConnect = useCallback(
+    (connection: Connection) => {
+      return setEdges((edges) => addEdge(connection, edges))
+    },
+    [setEdges]
+  )
 
   return {
     edges,

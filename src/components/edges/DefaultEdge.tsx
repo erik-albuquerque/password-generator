@@ -9,7 +9,6 @@ const DefaultEdge: React.FC<EdgeProps> = ({
   sourcePosition,
   targetPosition,
   style = {},
-  data,
   markerEnd
 }: EdgeProps) => {
   const [edgePath] = getSmoothStepPath({
