@@ -1,15 +1,15 @@
 import { Edge } from 'reactflow'
-import {
-  Rectangle,
-  DefaultEdge,
-  Button,
-  Label,
-  AddonButton,
-  PasswordText,
-  InputPasswordLength
-} from '../components'
 
 import { NodeCustomProps } from '../@types'
+import {
+  AddonButton,
+  Button,
+  DefaultEdge,
+  InputPasswordLength,
+  Label,
+  PasswordText,
+  Rectangle
+} from '../components'
 
 const NODE_TYPES = {
   rectangle: Rectangle,

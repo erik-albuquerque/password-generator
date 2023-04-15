@@ -1,4 +1,4 @@
-export * from './overwrite'
-export * from './node'
-export * from './dot'
 export * from './addons'
+export * from './dot'
+export * from './node'
+export * from './overwrite'

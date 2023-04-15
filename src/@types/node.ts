@@ -1,5 +1,6 @@
 import { Node } from 'reactflow'
-import { Overwrite, Dot } from '.'
+
+import { Dot, Overwrite } from '.'
 
 type NodeCustomProps = Overwrite<
   Node,

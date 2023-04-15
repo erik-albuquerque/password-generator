@@ -1,6 +1,7 @@
-import { ReactNode } from 'react'
-import { InputInput, InputIcon } from './components'
 import clsx from 'clsx'
+import { ReactNode } from 'react'
+
+import { InputIcon, InputInput } from './components'
 
 type InputRootProps = {
   className?: string

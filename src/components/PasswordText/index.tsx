@@ -1,8 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-types */
 import clsx from 'clsx'
-import { getCapitalLetters, getSymbols } from './utils'
-import { passwordState } from '../../recoil'
 import { useRecoilValue } from 'recoil'
+
+import { passwordState } from '../../recoil'
+import { getCapitalLetters, getSymbols } from './utils'
 
 type PasswordTextProps = {}
 

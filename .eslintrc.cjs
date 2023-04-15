@@ -16,7 +16,13 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: ['react', 'react-hooks', '@typescript-eslint', 'prettier'],
+  plugins: [
+    'react',
+    'react-hooks',
+    '@typescript-eslint',
+    'prettier',
+    'simple-import-sort'
+  ],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'spaced-comment': 'error',
@@ -28,7 +34,9 @@ module.exports = {
       {
         additionalHooks: '(useRecoilCallback|useRecoilTransaction_UNSTABLE)'
       }
-    ]
+    ],
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error'
   },
   settings: {
     'import/resolver': {

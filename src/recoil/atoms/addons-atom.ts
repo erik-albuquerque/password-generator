@@ -1,4 +1,5 @@
 import { atom } from 'recoil'
+
 import { Addons } from '../../@types'
 
 const addonsState = atom<Addons>({

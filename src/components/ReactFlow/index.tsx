@@ -1,5 +1,6 @@
-import ReactFlowRoot, { ReactFlowProps } from 'reactflow'
 import 'reactflow/dist/style.css'
+
+import ReactFlowRoot, { ReactFlowProps } from 'reactflow'
 
 import { Background, Controls } from './components'
 

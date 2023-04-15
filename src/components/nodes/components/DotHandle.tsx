@@ -1,7 +1,6 @@
+import clsx from 'clsx'
 import { HTMLAttributes } from 'react'
 import { Handle, HandleProps } from 'reactflow'
-
-import clsx from 'clsx'
 
 type DotHandleProps = HTMLAttributes<HTMLDivElement> & HandleProps
 

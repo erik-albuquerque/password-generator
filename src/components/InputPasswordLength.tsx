@@ -1,7 +1,8 @@
 import { ChangeEvent } from 'react'
 import { useRecoilState } from 'recoil'
-import { passwordLengthState } from '../recoil'
+
 import { Input } from '../components'
+import { passwordLengthState } from '../recoil'
 
 type InputPasswordLengthProps = {
   min?: number
