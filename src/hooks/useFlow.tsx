@@ -6,7 +6,7 @@ import {
   Label,
   AddonButton,
   PasswordText,
-  Input
+  InputPasswordLength
 } from '../components'
 
 import { NodeCustomProps } from '../@types'
@@ -286,18 +286,7 @@ const useFlow = () => {
       },
       data: {
         className: '!py-3 !px-2',
-        children: (
-          <Input.Root>
-            <Input.Input
-              type='number'
-              defaultValue={passwordLength}
-              min={1}
-              max={99}
-              onChange={updatePasswordLength}
-              className='font-medium max-w-[35px] text-center'
-            />
-          </Input.Root>
-        ),
+        children: <InputPasswordLength />,
         dots: [
           {
             id: 'edge-0',
