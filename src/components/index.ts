@@ -1,5 +1,6 @@
 export * from './AddonButton'
 export * from './edges'
+export * from './GeneratePasswordButton'
 export * from './Input'
 export * from './InputPasswordLength'
 export * from './nodes'

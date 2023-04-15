@@ -4,7 +4,7 @@ import { Addons } from '../../@types'
 
 const addonsState = atom<Addons>({
   key: 'addons',
-  default: ['CapitalLetters', 'Symbols']
+  default: ['Uppercase', 'Symbols']
 })
 
 export { addonsState }

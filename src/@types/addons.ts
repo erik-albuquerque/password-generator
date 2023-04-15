@@ -1,4 +1,4 @@
-type Addon = 'Numbers' | 'CapitalLetters' | 'Symbols'
+type Addon = 'Numbers' | 'Lowercase' | 'Uppercase' | 'Symbols'
 
 type Addons = Addon[]
 
