@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import { useRecoilValue } from 'recoil'
 
 import { passwordState } from '../../recoil'
-import { getCapitalLetters, getSymbols } from './utils'
+import { getCapitalLetters, getNumbers, getSymbols } from './utils'
 
 type PasswordTextProps = {}
 
@@ -14,17 +14,22 @@ const PasswordText: React.FC<PasswordTextProps> = () => {
 
   const symbols = getSymbols(password)
 
+  const numbers = getNumbers(password)
+
   const passwordWithStyles = [...password].map((char, index) => {
     const isSymbol = symbols.some(({ position }) => position === index)
 
     const isCapital = capitalLetters.some(({ position }) => position === index)
+
+    const isNumber = numbers.some(({ position }) => position === index)
 
     return (
       <span
         key={index}
         className={clsx(
           isSymbol && 'text-red-400 font-bold',
-          isCapital && 'text-white font-bold'
+          isCapital && 'text-white font-bold',
+          isNumber && 'text-purple-400'
         )}
       >
         {char}
