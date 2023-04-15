@@ -1,27 +1,43 @@
 import clsx from 'clsx'
-import { useCallback, useState } from 'react'
+import { useRecoilState, useRecoilValue, useRecoilCallback } from 'recoil'
+import { addonsState } from '../recoil/atoms/addons-atom'
+import { Addon } from '../@types'
 
 type AddonButtonProps = {
+  type: Addon
   children: React.ReactNode
 }
 
 const AddonButton: React.FC<AddonButtonProps> = ({
+  type,
   children
 }: AddonButtonProps) => {
-  const [isActive, setIsActive] = useState(false)
+  const [addons] = useRecoilState(addonsState)
+  const isActive = addons.includes(type)
+  const disabled = !useRecoilValue(addonsState)
 
-  const handleActive = useCallback(() => {
-    setIsActive((active) => !active)
-  }, [])
+  const handleToggleAddon = useRecoilCallback(
+    ({ set }) =>
+      () => {
+        set(addonsState, (oldAddons) =>
+          isActive
+            ? oldAddons.filter((addon) => addon !== type)
+            : [...oldAddons, type]
+        )
+      },
+    [isActive, type]
+  )
 
   return (
     <button
       type='button'
       className={clsx(
         'transition-colors rounded-lg p-1 border border-transparent hover:border-gray-400',
-        isActive && 'bg-gray-700'
+        isActive && 'bg-gray-700',
+        disabled && 'opacity-50 cursor-not-allowed'
       )}
-      onClick={handleActive}
+      onClick={handleToggleAddon}
+      disabled={disabled}
     >
       {children}
     </button>

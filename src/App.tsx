@@ -1,9 +1,11 @@
 import { ConnectionMode } from 'reactflow'
 import { ReactFlow } from './components'
-import { NODE_TYPES, EDGE_TYPES } from './constants'
 import { useEdges, useNodes } from './hooks'
+import { useFlow } from './hooks/useFlow'
 
 const App = () => {
+  const { NODE_TYPES, EDGE_TYPES } = useFlow()
+
   const { edges, onEdgesChange, onConnect } = useEdges()
   const { nodes, onNodesChange } = useNodes()
 
@@ -11,8 +13,8 @@ const App = () => {
     <ReactFlow.Root
       nodeTypes={NODE_TYPES}
       edgeTypes={EDGE_TYPES}
-      nodes={nodes}
       edges={edges}
+      nodes={nodes}
       onConnect={onConnect}
       onNodesChange={onNodesChange}
       onEdgesChange={onEdgesChange}
