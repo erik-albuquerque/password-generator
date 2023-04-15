@@ -5,6 +5,7 @@ import {
   AddonButton,
   Button,
   DefaultEdge,
+  GeneratePasswordButton,
   InputPasswordLength,
   Label,
   PasswordText,
@@ -31,7 +32,7 @@ const useFlow = () => {
         y: 240
       },
       data: {
-        width: 200,
+        width: 244,
         height: 103,
         title: 'Addons',
         headerStyle: 'mt-2',
@@ -147,7 +148,7 @@ const useFlow = () => {
       id: 'node-1',
       type: 'rectangle',
       position: {
-        x: 570,
+        x: 610,
         y: 422
       },
       data: {
@@ -183,12 +184,12 @@ const useFlow = () => {
       id: 'node-2',
       type: 'button',
       position: {
-        x: 817,
+        x: 861,
         y: 279
       },
       data: {
         className: 'bg-purple-500 hover:bg-purple-500/90',
-        children: <span>Generate</span>,
+        children: <GeneratePasswordButton />,
         dots: [
           {
             id: 'edge-0',
@@ -211,7 +212,7 @@ const useFlow = () => {
         y: 292
       },
       data: {
-        className: 'bg-purple-500 hover:bg-purple-500/90',
+        className: 'py-3 px-4 bg-purple-500 hover:bg-purple-500/90',
         children: <span>Random</span>,
         dots: [
           {
@@ -226,11 +227,11 @@ const useFlow = () => {
       id: 'node-4',
       type: 'button',
       position: {
-        x: 606,
+        x: 646,
         y: 595
       },
       data: {
-        className: 'bg-gray-700 hover:bg-gray-700/80 !gap-2',
+        className: 'py-3 px-4 bg-gray-700 hover:bg-gray-700/80 !gap-2',
         children: (
           <>
             <svg
@@ -304,7 +305,7 @@ const useFlow = () => {
       id: 'node-7',
       type: 'label',
       position: {
-        x: 900,
+        x: 941,
         y: 470
       },
       data: {
@@ -327,7 +328,7 @@ const useFlow = () => {
       id: 'node-8',
       type: 'label',
       position: {
-        x: 924,
+        x: 965,
         y: 548
       },
       data: {
