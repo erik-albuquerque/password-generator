@@ -10,9 +10,6 @@ import {
 } from '../components'
 
 import { NodeCustomProps } from '../@types'
-import { useRecoilState } from 'recoil'
-import { passwordLengthState } from '../recoil'
-import { ChangeEvent } from 'react'
 
 const NODE_TYPES = {
   rectangle: Rectangle,
@@ -25,13 +22,6 @@ const EDGE_TYPES = {
 }
 
 const useFlow = () => {
-  const [passwordLength, setPasswordLength] =
-    useRecoilState(passwordLengthState)
-
-  const updatePasswordLength = (event: ChangeEvent<HTMLInputElement>) => {
-    setPasswordLength(Number(event.target.value))
-  }
-
   const INITIALS_NODES = [
     {
       id: 'node-0',
@@ -47,7 +37,7 @@ const useFlow = () => {
         headerStyle: 'mt-2',
         children: (
           <div className='flex flex-row items-center gap-4'>
-            <AddonButton>
+            <AddonButton type='Numbers'>
               <svg
                 width='28'
                 height='28'
@@ -68,7 +58,7 @@ const useFlow = () => {
                 </defs>
               </svg>
             </AddonButton>
-            <AddonButton>
+            <AddonButton type='CapitalLetters'>
               <svg
                 width='28'
                 height='28'
@@ -82,7 +72,7 @@ const useFlow = () => {
                 />
               </svg>
             </AddonButton>
-            <AddonButton>
+            <AddonButton type='Symbols'>
               <svg
                 width='28'
                 height='28'
