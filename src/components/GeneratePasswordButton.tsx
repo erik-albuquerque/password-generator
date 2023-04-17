@@ -5,8 +5,7 @@ import { Grid } from 'react-loader-spinner'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { addonsState, passwordLengthState, passwordState } from '../recoil'
-
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms))
+import { delay } from '../utils'
 
 const GeneratePasswordButton = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -36,7 +35,7 @@ const GeneratePasswordButton = () => {
   }, [addons, isLoading, passwordLength, setPassword])
 
   return (
-    <span
+    <div
       className={clsx(
         'py-3 px-4 flex items-center justify-center',
         'aria-disabled:cursor-not-allowed',
@@ -45,8 +44,8 @@ const GeneratePasswordButton = () => {
       onClick={handleGeneratePassword}
       aria-disabled={isLoading}
     >
-      {isLoading ? <Grid color='#fff' width={20} /> : 'Generate'}
-    </span>
+      {isLoading ? <Grid color='#fff' width={20} /> : <span>Generate</span>}
+    </div>
   )
 }
 
