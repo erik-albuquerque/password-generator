@@ -20,6 +20,9 @@ export default {
         },
         purple: {
           500: '#8257E6'
+        },
+        green: {
+          500: '#04d361'
         }
       }
     }
