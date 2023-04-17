@@ -1,4 +1,5 @@
 export * from './AddonButton'
+export * from './CopyButton'
 export * from './edges'
 export * from './GeneratePasswordButton'
 export * from './Input'
