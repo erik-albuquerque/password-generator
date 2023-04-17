@@ -9,6 +9,7 @@ import {
   GeneratePasswordButton,
   InputPasswordLength,
   Label,
+  PasswordStrengthEmoji,
   PasswordText,
   RandomAddonsButton,
   Rectangle
@@ -316,7 +317,7 @@ const useFlow = () => {
         y: 548
       },
       data: {
-        children: <span>💪</span>,
+        children: <PasswordStrengthEmoji />,
         className: '!py-1 !px-3',
         dots: [
           {
