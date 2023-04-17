@@ -10,6 +10,7 @@ import {
   InputPasswordLength,
   Label,
   PasswordText,
+  RandomAddonsButton,
   Rectangle
 } from '../components'
 
@@ -213,8 +214,8 @@ const useFlow = () => {
         y: 292
       },
       data: {
-        className: 'py-3 px-4 bg-purple-500 hover:bg-purple-500/90',
-        children: <span>Random</span>,
+        className: 'bg-purple-500 hover:bg-purple-500/90',
+        children: <RandomAddonsButton />,
         dots: [
           {
             id: crypto.randomUUID(),
