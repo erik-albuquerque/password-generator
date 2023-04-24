@@ -24,7 +24,7 @@ const App = () => {
         type: 'default'
       }}
     >
-      <ReactFlow.Controls />
+      {/* <ReactFlow.Controls /> */}
     </ReactFlow.Root>
   )
 }
