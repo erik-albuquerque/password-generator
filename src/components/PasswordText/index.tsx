@@ -11,7 +11,7 @@ const PasswordText: React.FC<PasswordTextProps> = () => {
   const password = useRecoilValue(passwordState)
 
   const uppercases = getUppercases(password)
-  
+
   const symbols = getSymbols(password)
 
   const numbers = getNumbers(password)
@@ -27,9 +27,10 @@ const PasswordText: React.FC<PasswordTextProps> = () => {
       <span
         key={index}
         className={clsx(
-          isSymbol && 'text-red-400 font-bold',
-          isUppercase && 'text-white font-bold',
-          isNumber && 'text-purple-400 font-bold'
+          'font-bold',
+          isSymbol && 'text-red-400',
+          isUppercase && 'text-white',
+          isNumber && 'text-purple-400'
         )}
       >
         {char}
@@ -38,7 +39,7 @@ const PasswordText: React.FC<PasswordTextProps> = () => {
   })
 
   return (
-    <div className='flex items-center justify-center text-gray-400 w-full max-w-[250px]'>
+    <div className='flex items-center justify-center flex-wrap text-gray-400 w-full max-w-[250px]'>
       {passwordWithStyles}
     </div>
   )

@@ -331,8 +331,8 @@ const useFlow = () => {
         width: 281,
         height: 143,
         title: 'Password',
-        headerStyle: 'mt-4',
-        className: 'gap-6',
+        headerStyle: 'mt-2',
+        className: 'items-center',
         children: <PasswordText />,
         dots: [
           {
@@ -449,7 +449,7 @@ const useFlow = () => {
       },
       data: {
         className: '!py-3 !px-2',
-        children: <InputPasswordLength />,
+        children: <InputPasswordLength min={1} max={100} />,
         dots: [
           {
             id: 'edge-0',
