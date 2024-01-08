@@ -3,8 +3,8 @@ import { useCallback, useState } from 'react'
 import { Grid } from 'react-loader-spinner'
 import { useSetRecoilState } from 'recoil'
 
-import { Addons } from '../@types'
 import { addonsState } from '../recoil'
+import { Addons } from '../types'
 import { delay } from '../utils'
 
 const RandomAddonsButton = () => {

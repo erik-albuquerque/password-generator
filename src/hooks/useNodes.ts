@@ -1,6 +1,6 @@
 import { useNodesState } from 'reactflow'
 
-import { NodeCustomProps } from '../@types'
+import { NodeCustomProps } from '../types'
 import { useFlow } from './useFlow'
 
 const useNodes = () => {

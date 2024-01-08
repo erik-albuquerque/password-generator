@@ -1,8 +1,8 @@
 import clsx from 'clsx'
 import { useRecoilCallback, useRecoilState, useRecoilValue } from 'recoil'
 
-import { Addon } from '../@types'
 import { addonsState } from '../recoil/atoms/addons-atom'
+import { Addon } from '../types'
 
 type AddonButtonProps = {
   type: Addon

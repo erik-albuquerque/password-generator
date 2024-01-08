@@ -1,6 +1,5 @@
 import { Edge } from 'reactflow'
 
-import { NodeCustomProps } from '../@types'
 import {
   AddonButton,
   Button,
@@ -16,6 +15,7 @@ import {
   Rectangle,
   SimpleBezierEdge
 } from '../components'
+import { NodeCustomProps } from '../types'
 
 const NODE_TYPES = {
   rectangle: Rectangle,

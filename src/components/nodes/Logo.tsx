@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { NodeProps, Position } from 'reactflow'
 
-import { Dot, Overwrite } from '../../@types'
+import { Dot, Overwrite } from '../../types'
 import { DotHandle } from './components'
 
 type LogoProps = Overwrite<
