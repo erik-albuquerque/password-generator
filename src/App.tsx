@@ -23,9 +23,9 @@ const App = () => {
       defaultEdgeOptions={{
         type: 'default'
       }}
-    >
-      {/* <ReactFlow.Controls /> */}
-    </ReactFlow.Root>
+      // eslint-disable-next-line react/no-children-prop
+      children={null}
+    />
   )
 }
 
