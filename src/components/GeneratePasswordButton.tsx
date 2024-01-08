@@ -19,7 +19,7 @@ const GeneratePasswordButton = () => {
 
     setIsLoading(true)
 
-    await delay(2000)
+    await delay(500) // 500 ms
 
     const password = generate({
       length: passwordLength,
