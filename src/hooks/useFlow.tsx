@@ -3,7 +3,7 @@ import { Edge } from 'reactflow'
 import {
   AddonButton,
   Button,
-  CopyButton,
+  CopyToClipboard,
   DefaultEdge,
   GeneratePasswordButton,
   InputPasswordLength,
@@ -407,7 +407,7 @@ const useFlow = () => {
         y: 595
       },
       data: {
-        children: <CopyButton />,
+        children: <CopyToClipboard />,
         dots: [
           {
             id: 'edge-0',

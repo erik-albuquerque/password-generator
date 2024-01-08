@@ -6,7 +6,7 @@ import { MessageTag } from './components'
 
 const MESSAGE_TAG_TIMEOUT_MS = 2000 // 2s
 
-const CopyButton = () => {
+const CopyToClipboard = () => {
   const messageTagTimeoutIdRef = useRef<number>()
 
   const password = useRecoilValue(passwordState)
@@ -95,4 +95,4 @@ const CopyButton = () => {
   )
 }
 
-export { CopyButton }
+export { CopyToClipboard }

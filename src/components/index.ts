@@ -1,5 +1,5 @@
 export * from './AddonButton'
-export * from './CopyButton'
+export * from './CopyToClipboard'
 export * from './edges'
 export * from './GeneratePasswordButton'
 export * from './Input'
