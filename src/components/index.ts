@@ -1,4 +1,4 @@
-export * from './AddonButton'
+export * from './Addons'
 export * from './CopyToClipboard'
 export * from './edges'
 export * from './GeneratePasswordButton'
