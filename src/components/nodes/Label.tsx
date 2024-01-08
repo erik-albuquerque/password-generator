@@ -20,7 +20,7 @@ const Label: React.FC<LabelProps> = ({ data }: LabelProps) => {
     <>
       <div
         className={clsx(
-          'bg-gray-800 border border-gray-700 font-medium text-white py-3 px-4 rounded-full',
+          'bg-gray-800 border border-gray-700 font-medium text-white py-3 px-4 rounded-full focus-within:border-purple-500 transition-colors',
           data.className
         )}
       >
