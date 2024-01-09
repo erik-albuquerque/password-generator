@@ -1,2 +1,2 @@
-export * from './DefaultEdge'
-export * from './SimpleBezierEdge'
+export * from './default-edge'
+export * from './simple-bezier-edge'

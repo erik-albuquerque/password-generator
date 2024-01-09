@@ -2,17 +2,17 @@ import clsx from 'clsx'
 import { useRecoilCallback, useRecoilState, useRecoilValue } from 'recoil'
 
 import { addonsState } from '../../../recoil'
-import { Addon as AddonTypes } from '../../../types'
+import { Addon } from '../../../types'
 
-type AddonProps = {
-  type: AddonTypes
+type AddonItemProps = {
+  type: Addon
   children: React.ReactNode
 }
 
-const Addon: React.FC<AddonProps> = ({
+const AddonItem: React.FC<AddonItemProps> = ({
   type,
   children
-}: AddonProps) => {
+}: AddonItemProps) => {
   const [addons] = useRecoilState(addonsState)
   const isActive = addons.includes(type)
   const disabled = !useRecoilValue(addonsState)
@@ -45,4 +45,4 @@ const Addon: React.FC<AddonProps> = ({
   )
 }
 
-export { Addon }
+export { AddonItem }

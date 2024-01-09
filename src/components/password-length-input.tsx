@@ -4,15 +4,15 @@ import { useRecoilState } from 'recoil'
 import { Input } from '../components'
 import { passwordLengthState } from '../recoil'
 
-type InputPasswordLengthProps = {
+type PasswordLengthInputProps = {
   min?: number
   max?: number
 }
 
-const InputPasswordLength: React.FC<InputPasswordLengthProps> = ({
+const PasswordLengthInput: React.FC<PasswordLengthInputProps> = ({
   min = 1,
   max = 99
-}: InputPasswordLengthProps) => {
+}: PasswordLengthInputProps) => {
   const [passwordLength, setPasswordLength] =
     useRecoilState(passwordLengthState)
 
@@ -34,4 +34,4 @@ const InputPasswordLength: React.FC<InputPasswordLengthProps> = ({
   )
 }
 
-export { InputPasswordLength }
+export { PasswordLengthInput }

@@ -7,7 +7,7 @@ import { addonsState } from '../recoil'
 import { Addons } from '../types'
 import { delay } from '../utils'
 
-const RandomAddonsButton = () => {
+const GenerateRandomAddonsButton = () => {
   const setAddons = useSetRecoilState(addonsState)
 
   const [isLoading, setIsLoading] = useState(false)
@@ -25,7 +25,7 @@ const RandomAddonsButton = () => {
     return randomAddons
   }, [])
 
-  const handleRandomAddons = useCallback(async () => {
+  const handleGenerateAddons = useCallback(async () => {
     if (isLoading) return
 
     setIsLoading(true)
@@ -47,11 +47,11 @@ const RandomAddonsButton = () => {
         isLoading && 'w-[92.48px] h-[48px]'
       )}
       aria-disabled={isLoading}
-      onClick={handleRandomAddons}
+      onClick={handleGenerateAddons}
     >
       {isLoading ? <Grid color='#fff' width={20} /> : <span>Random</span>}
     </div>
   )
 }
 
-export { RandomAddonsButton }
+export { GenerateRandomAddonsButton }

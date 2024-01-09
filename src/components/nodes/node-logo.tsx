@@ -4,7 +4,7 @@ import { NodeProps, Position } from 'reactflow'
 import { Dot, Overwrite } from '../../types'
 import { DotHandle } from './components'
 
-type LogoProps = Overwrite<
+type NodeLogoProps = Overwrite<
   NodeProps,
   {
     data: {
@@ -15,7 +15,7 @@ type LogoProps = Overwrite<
   }
 >
 
-const Logo: React.FC<LogoProps> = ({ data }: LogoProps) => {
+const NodeLogo: React.FC<NodeLogoProps> = ({ data }: NodeLogoProps) => {
   return (
     <>
       <div className={clsx(data.className)}>{data.children}</div>
@@ -37,4 +37,4 @@ const Logo: React.FC<LogoProps> = ({ data }: LogoProps) => {
   )
 }
 
-export { Logo }
+export { NodeLogo }

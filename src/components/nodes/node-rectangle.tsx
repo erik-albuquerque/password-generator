@@ -4,7 +4,7 @@ import { NodeProps, Position } from 'reactflow'
 import { Dot, Overwrite } from '../../types'
 import { DotHandle } from './components'
 
-type RectangleProps = Overwrite<
+type NodeRectangleProps = Overwrite<
   NodeProps,
   {
     data: {
@@ -19,7 +19,7 @@ type RectangleProps = Overwrite<
   }
 >
 
-const Rectangle: React.FC<RectangleProps> = ({ data }: RectangleProps) => {
+const NodeRectangle: React.FC<NodeRectangleProps> = ({ data }: NodeRectangleProps) => {
   return (
     <>
       <div
@@ -54,4 +54,4 @@ const Rectangle: React.FC<RectangleProps> = ({ data }: RectangleProps) => {
   )
 }
 
-export { Rectangle }
+export { NodeRectangle }

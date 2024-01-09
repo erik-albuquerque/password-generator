@@ -1,1 +1,2 @@
-export * from './DotHandle'
+export * from './dot-handle'
+

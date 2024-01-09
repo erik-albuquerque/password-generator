@@ -1,21 +1,21 @@
-import { Addon } from './components/Addon'
+import { AddonItem } from './components/addon-item'
 import { LowercaseIcon, NumbersIcon, SymbolsIcon,UppercaseIcon } from './components/icons'
 
 const Addons = () => {
   return (
     <div className='flex flex-row items-center gap-4'>
-      <Addon type='Numbers'>
+      <AddonItem type='Numbers'>
         <NumbersIcon />
-      </Addon>
-      <Addon type='Lowercase'>
+      </AddonItem>
+      <AddonItem type='Lowercase'>
         <LowercaseIcon />
-      </Addon>
-      <Addon type='Uppercase'>
+      </AddonItem>
+      <AddonItem type='Uppercase'>
         <UppercaseIcon />
-      </Addon>
-      <Addon type='Symbols'>
+      </AddonItem>
+      <AddonItem type='Symbols'>
         <SymbolsIcon />
-      </Addon>
+      </AddonItem>
     </div>
   )
 }

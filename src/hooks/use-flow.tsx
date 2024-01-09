@@ -2,26 +2,23 @@ import { Edge } from 'reactflow'
 
 import {
   Addons,
-  Button,
   CopyToClipboard,
   DefaultEdge,
   GeneratePasswordButton,
-  InputPasswordLength,
-  Label,
-  Logo,
+  GenerateRandomAddonsButton,
+  PasswordLabel,
+  PasswordLengthInput,
   PasswordStrengthEmoji,
-  PasswordText,
-  RandomAddonsButton,
-  Rectangle,
   SimpleBezierEdge
 } from '../components'
+import { NodeButton, NodeLabel, NodeLogo, NodeRectangle } from '../components/nodes'
 import { NodeCustomProps } from '../types'
 
 const NODE_TYPES = {
-  rectangle: Rectangle,
-  button: Button,
-  label: Label,
-  logo: Logo
+  rectangle: NodeRectangle,
+  button: NodeButton,
+  label: NodeLabel,
+  logo: NodeLogo
 }
 
 const EDGE_TYPES = {
@@ -248,7 +245,7 @@ const useFlow = () => {
         title: 'Password',
         headerStyle: 'mt-2',
         className: 'items-center',
-        children: <PasswordText />,
+        children: <PasswordLabel />,
         dots: [
           {
             id: 'edge-0',
@@ -304,7 +301,7 @@ const useFlow = () => {
       },
       data: {
         className: 'bg-purple-500 hover:bg-purple-500/90',
-        children: <RandomAddonsButton />,
+        children: <GenerateRandomAddonsButton />,
         dots: [
           {
             id: crypto.randomUUID(),
@@ -364,7 +361,7 @@ const useFlow = () => {
       },
       data: {
         className: '!py-3 !px-2',
-        children: <InputPasswordLength min={1} max={100} />,
+        children: <PasswordLengthInput min={1} max={100} />,
         dots: [
           {
             id: 'edge-0',

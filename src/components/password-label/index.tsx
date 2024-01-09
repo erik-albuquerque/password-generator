@@ -5,9 +5,9 @@ import { useRecoilValue } from 'recoil'
 import { passwordState } from '../../recoil'
 import { getNumbers, getSymbols, getUppercases } from './utils'
 
-type PasswordTextProps = {}
+type PasswordLabelProps = {}
 
-const PasswordText: React.FC<PasswordTextProps> = () => {
+const PasswordLabel: React.FC<PasswordLabelProps> = () => {
   const password = useRecoilValue(passwordState)
 
   const uppercases = getUppercases(password)
@@ -45,4 +45,4 @@ const PasswordText: React.FC<PasswordTextProps> = () => {
   )
 }
 
-export { PasswordText }
+export { PasswordLabel }

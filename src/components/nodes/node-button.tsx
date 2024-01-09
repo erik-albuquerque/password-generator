@@ -4,28 +4,31 @@ import { NodeProps, Position } from 'reactflow'
 import { Dot, Overwrite } from '../../types'
 import { DotHandle } from './components'
 
-type LabelProps = Overwrite<
+type NodeButtonProps = Overwrite<
   NodeProps,
   {
     data: {
+      action?: () => void
       className?: string
       dots: Dot[]
-      children: React.ReactNode
+      children?: React.ReactNode
     }
   }
 >
 
-const Label: React.FC<LabelProps> = ({ data }: LabelProps) => {
+const NodeButton: React.FC<NodeButtonProps> = ({ data }: NodeButtonProps) => {
   return (
     <>
-      <div
+      <button
+        type='button'
         className={clsx(
-          'bg-gray-800 border border-gray-700 font-medium text-white py-3 px-4 rounded-full focus-within:border-purple-500 transition-colors',
+          'flex flex-row items-center gap-1 font-medium text-white transition-colors rounded-full',
           data.className
         )}
+        onClick={data?.action}
       >
         {data.children}
-      </div>
+      </button>
 
       {data.dots.map((dot) => (
         <DotHandle
@@ -44,4 +47,4 @@ const Label: React.FC<LabelProps> = ({ data }: LabelProps) => {
   )
 }
 
-export { Label }
+export { NodeButton }

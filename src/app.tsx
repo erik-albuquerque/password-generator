@@ -1,12 +1,10 @@
 import { ConnectionMode } from 'reactflow'
 
 import { ReactFlow } from './components'
-import { useEdges, useNodes } from './hooks'
-import { useFlow } from './hooks/useFlow'
+import { useEdges, useFlow, useNodes } from './hooks'
 
 const App = () => {
   const { NODE_TYPES, EDGE_TYPES } = useFlow()
-
   const { edges, onEdgesChange, onConnect } = useEdges()
   const { nodes, onNodesChange } = useNodes()
 

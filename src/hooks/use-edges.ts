@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { addEdge, Connection, useEdgesState } from 'reactflow'
 
-import { useFlow } from './useFlow'
+import { useFlow } from './use-flow'
 
 const useEdges = () => {
   const { INITIALS_EDGES } = useFlow()
