@@ -1,5 +1,5 @@
+import { LowercaseIcon, NumbersIcon, SymbolsIcon,UppercaseIcon } from '../icons'
 import { AddonItem } from './components/addon-item'
-import { LowercaseIcon, NumbersIcon, SymbolsIcon,UppercaseIcon } from './components/icons'
 
 const Addons = () => {
   return (
