@@ -1,7 +1,7 @@
-import clsx from 'clsx'
 import { NodeProps, Position } from 'reactflow'
 
 import { Dot, Overwrite } from '../../types'
+import { cn } from '../../utils'
 import { DotHandle } from './components'
 
 type NodeButtonProps = Overwrite<
@@ -21,7 +21,7 @@ const NodeButton: React.FC<NodeButtonProps> = ({ data }: NodeButtonProps) => {
     <>
       <button
         type='button'
-        className={clsx(
+        className={cn(
           'flex flex-row items-center gap-1 font-medium text-white transition-colors rounded-full',
           data.className
         )}

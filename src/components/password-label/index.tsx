@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import clsx from 'clsx'
 import { useRecoilValue } from 'recoil'
 
 import { passwordState } from '../../recoil'
+import { cn } from '../../utils'
 import { getNumbers, getSymbols, getUppercases } from './utils'
 
 type PasswordLabelProps = {}
@@ -26,7 +26,7 @@ const PasswordLabel: React.FC<PasswordLabelProps> = () => {
     return (
       <span
         key={index}
-        className={clsx(
+        className={cn(
           'font-bold',
           isSymbol && 'text-red-400',
           isUppercase && 'text-white',

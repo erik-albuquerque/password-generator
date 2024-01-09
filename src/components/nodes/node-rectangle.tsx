@@ -1,7 +1,7 @@
-import clsx from 'clsx'
 import { NodeProps, Position } from 'reactflow'
 
 import { Dot, Overwrite } from '../../types'
+import { cn } from '../../utils'
 import { DotHandle } from './components'
 
 type NodeRectangleProps = Overwrite<
@@ -23,7 +23,7 @@ const NodeRectangle: React.FC<NodeRectangleProps> = ({ data }: NodeRectangleProp
   return (
     <>
       <div
-        className={clsx(
+        className={cn(
           'flex flex-col items-center gap-4 bg-gray-800 rounded-2xl border border-gray-700 w-full h-full min-w-[200px] min-h-[100px]',
           data.className
         )}

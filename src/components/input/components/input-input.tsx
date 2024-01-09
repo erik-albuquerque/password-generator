@@ -1,5 +1,6 @@
-import clsx from 'clsx'
 import { InputHTMLAttributes } from 'react'
+
+import { cn } from '../../../utils'
 
 type InputInputProps = InputHTMLAttributes<HTMLInputElement> &
   Record<string, unknown>
@@ -10,7 +11,7 @@ const InputInput: React.FC<InputInputProps> = ({
 }: InputInputProps) => {
   return (
     <input
-      className={clsx(
+      className={cn(
         'bg-transparent border-none flex-1 outline-none text-base',
         className
       )}

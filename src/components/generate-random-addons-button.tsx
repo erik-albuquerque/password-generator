@@ -1,11 +1,10 @@
-import clsx from 'clsx'
 import { useCallback, useState } from 'react'
 import { Grid } from 'react-loader-spinner'
 import { useSetRecoilState } from 'recoil'
 
 import { addonsState } from '../recoil'
 import { Addons } from '../types'
-import { delay } from '../utils'
+import { cn, delay } from '../utils'
 
 const GenerateRandomAddonsButton = () => {
   const setAddons = useSetRecoilState(addonsState)
@@ -41,7 +40,7 @@ const GenerateRandomAddonsButton = () => {
 
   return (
     <div
-      className={clsx(
+      className={cn(
         'py-3 px-4 flex items-center justify-center',
         'aria-disabled:cursor-not-allowed',
         isLoading && 'w-[92.48px] h-[48px]'

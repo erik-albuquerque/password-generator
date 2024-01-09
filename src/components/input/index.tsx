@@ -1,6 +1,6 @@
-import clsx from 'clsx'
 import { ReactNode } from 'react'
 
+import { cn } from '../../utils'
 import { InputIcon, InputInput } from './components'
 
 type InputRootProps = {
@@ -13,7 +13,7 @@ const InputRoot: React.FC<InputRootProps> = ({
   className
 }: InputRootProps) => {
   return (
-    <div className={clsx('flex items-center gap-3 rounded w-full', className)}>
+    <div className={cn('flex items-center gap-3 rounded w-full', className)}>
       {children}
     </div>
   )

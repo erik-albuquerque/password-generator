@@ -1,7 +1,7 @@
-import clsx from 'clsx'
 import { NodeProps, Position } from 'reactflow'
 
 import { Dot, Overwrite } from '../../types'
+import { cn } from '../../utils'
 import { DotHandle } from './components'
 
 type NodeLogoProps = Overwrite<
@@ -18,7 +18,7 @@ type NodeLogoProps = Overwrite<
 const NodeLogo: React.FC<NodeLogoProps> = ({ data }: NodeLogoProps) => {
   return (
     <>
-      <div className={clsx(data.className)}>{data.children}</div>
+      <div className={cn(data.className)}>{data.children}</div>
 
       {data.dots.map((dot) => (
         <DotHandle

@@ -1,4 +1,4 @@
-import clsx from 'clsx'
+import { cn } from '../../../utils'
 
 type MessageTagProps = {
   label: string
@@ -16,7 +16,7 @@ const MessageTag: React.FC<MessageTagProps> = ({
   return (
     <div
       onClick={onClose}
-      className={clsx(
+      className={cn(
         'absolute min-w-max flex flex-row items-center gap-3 py-1 px-3 rounded-md',
         type === 'success' && 'bg-green-500 hover:bg-green-500/90',
         type === 'error' && 'bg-red-400 hover:bg-red-400/90',

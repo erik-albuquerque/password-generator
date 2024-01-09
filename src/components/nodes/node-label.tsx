@@ -1,7 +1,7 @@
-import clsx from 'clsx'
 import { NodeProps, Position } from 'reactflow'
 
 import { Dot, Overwrite } from '../../types'
+import { cn } from '../../utils'
 import { DotHandle } from './components'
 
 type NodeLabelProps = Overwrite<
@@ -19,7 +19,7 @@ const NodeLabel: React.FC<NodeLabelProps> = ({ data }: NodeLabelProps) => {
   return (
     <>
       <div
-        className={clsx(
+        className={cn(
           'bg-gray-800 border border-gray-700 font-medium text-white py-3 px-4 rounded-full focus-within:border-purple-500 transition-colors',
           data.className
         )}

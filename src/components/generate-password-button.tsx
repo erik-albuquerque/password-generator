@@ -1,11 +1,10 @@
-import clsx from 'clsx'
 import { generate } from 'generate-password-browser'
 import { useCallback, useState } from 'react'
 import { Grid } from 'react-loader-spinner'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { addonsState, passwordLengthState, passwordState } from '../recoil'
-import { delay } from '../utils'
+import { cn,delay } from '../utils'
 
 const GeneratePasswordButton = () => {
   const [isLoading, setIsLoading] = useState(false)
@@ -36,7 +35,7 @@ const GeneratePasswordButton = () => {
 
   return (
     <div
-      className={clsx(
+      className={cn(
         'py-3 px-4 flex items-center justify-center',
         'aria-disabled:cursor-not-allowed',
         isLoading && 'w-[98.72px] h-[48px]'

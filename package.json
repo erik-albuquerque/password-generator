@@ -20,6 +20,7 @@
     "react-loader-spinner": "^5.3.4",
     "reactflow": "^11.7.0",
     "recoil": "^0.7.7",
+    "tailwind-merge": "^2.2.0",
     "zxcvbn": "^4.4.2"
   },
   "devDependencies": {

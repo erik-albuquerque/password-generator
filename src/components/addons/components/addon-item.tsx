@@ -1,8 +1,8 @@
-import clsx from 'clsx'
 import { useRecoilCallback, useRecoilState, useRecoilValue } from 'recoil'
 
 import { addonsState } from '../../../recoil'
 import { Addon } from '../../../types'
+import { cn } from '../../../utils'
 
 type AddonItemProps = {
   type: Addon
@@ -32,7 +32,7 @@ const AddonItem: React.FC<AddonItemProps> = ({
   return (
     <button
       type='button'
-      className={clsx(
+      className={cn(
         'transition-colors rounded-lg p-1 border border-transparent hover:border-gray-400',
         isActive && 'bg-gray-700',
         disabled && 'opacity-50 cursor-not-allowed'
