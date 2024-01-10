@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 
 const passwordLengthState = atom<number>({
   key: 'passwordLength',
-  default: 17
+  default: 8
 })
 
 export { passwordLengthState }

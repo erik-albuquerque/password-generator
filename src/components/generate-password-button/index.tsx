@@ -1,37 +1,28 @@
-import { generate } from 'generate-password-browser'
 import { useCallback, useState } from 'react'
 import { Grid } from 'react-loader-spinner'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-import { addonsState, passwordLengthState, passwordState } from '../recoil'
-import { cn,delay } from '../utils'
+import { addonsState, passwordLengthState, passwordState } from '../../recoil'
+import { cn, delay } from '../../utils'
+import { generatePassword } from './utils/generate-password'
 
-const GeneratePasswordButton = () => {
+const GeneratePasswordButton: React.FC = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const addons = useRecoilValue(addonsState)
   const passwordLength = useRecoilValue(passwordLengthState)
   const setPassword = useSetRecoilState(passwordState)
+  const isAddonsEmpty = addons.length === 0
 
   const handleGeneratePassword = useCallback(async () => {
-    if (isLoading) return
-
+    if (isLoading || isAddonsEmpty) return
     setIsLoading(true)
-
     await delay(500) // 500 ms
-
-    const password = generate({
-      length: passwordLength,
-      numbers: addons.includes('Numbers'),
-      lowercase: addons.includes('Lowercase'),
-      uppercase: addons.includes('Uppercase'),
-      symbols: addons.includes('Symbols')
-    })
-
+    const password = generatePassword(addons, passwordLength)
     setPassword(password)
-
     setIsLoading(false)
-  }, [addons, isLoading, passwordLength, setPassword])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [addons, isLoading, isAddonsEmpty, passwordLength])
 
   return (
     <button
@@ -42,7 +33,7 @@ const GeneratePasswordButton = () => {
         isLoading && 'w-[98.72px] h-12 cursor-not-allowed'
       )}
       onClick={handleGeneratePassword}
-      disabled={noAddonsSelected}
+      disabled={isAddonsEmpty}
     >
       {isLoading ? <Grid color='#fff' width={20} /> : <span>Generate</span>}
     </button>
