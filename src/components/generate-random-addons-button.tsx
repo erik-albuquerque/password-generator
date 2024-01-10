@@ -39,17 +39,18 @@ const GenerateRandomAddonsButton = () => {
   }, [getRandomAddons, isLoading, setAddons])
 
   return (
-    <div
+    <button
+      type='button'
       className={cn(
-        'py-3 px-4 flex items-center justify-center',
-        'aria-disabled:cursor-not-allowed',
+        'py-3 px-4 flex items-center justify-center rounded-full bg-purple-500 hover:bg-purple-500/90',
+        'disabled:cursor-not-allowed',
         isLoading && 'w-[92.48px] h-[48px]'
       )}
-      aria-disabled={isLoading}
+      disabled={isLoading}
       onClick={handleGenerateAddons}
     >
       {isLoading ? <Grid color='#fff' width={20} /> : <span>Random</span>}
-    </div>
+    </button>
   )
 }
 

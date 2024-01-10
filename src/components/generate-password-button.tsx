@@ -34,17 +34,18 @@ const GeneratePasswordButton = () => {
   }, [addons, isLoading, passwordLength, setPassword])
 
   return (
-    <div
+    <button
+      type='button'
       className={cn(
-        'py-3 px-4 flex items-center justify-center',
-        'aria-disabled:cursor-not-allowed',
-        isLoading && 'w-[98.72px] h-[48px]'
+        'py-3 px-4 flex items-center rounded-full justify-center bg-purple-500 hover:bg-purple-500/90',
+        'disabled:cursor-not-allowed disabled:bg-red-400/90',
+        isLoading && 'w-[98.72px] h-12 cursor-not-allowed'
       )}
       onClick={handleGeneratePassword}
-      aria-disabled={isLoading}
+      disabled={noAddonsSelected}
     >
       {isLoading ? <Grid color='#fff' width={20} /> : <span>Generate</span>}
-    </div>
+    </button>
   )
 }
 

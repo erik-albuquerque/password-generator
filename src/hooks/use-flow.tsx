@@ -281,8 +281,6 @@ const useFlow = () => {
         y: 279
       },
       data: {
-        className:
-          'bg-purple-500 hover:bg-purple-500/90',
         children: <GeneratePasswordButton />,
         dots: [
           {
@@ -306,7 +304,6 @@ const useFlow = () => {
         y: 292
       },
       data: {
-        className: 'bg-purple-500 hover:bg-purple-500/90',
         children: <GenerateRandomAddonsButton />,
         dots: [
           {

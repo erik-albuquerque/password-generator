@@ -69,14 +69,15 @@ const CopyToClipboard = () => {
 
   return (
     <div className='relative'>
-      <div
+      <button
+        type='button'
         onClick={copyToClipboard}
         className='flex flex-row items-center py-3 pl-3 pr-4 gap-1 rounded-full bg-gray-700 hover:bg-gray-700/80'
       >
         <CopyIcon />
 
         <span className='font-medium'>Copy</span>
-      </div>
+      </button>
 
       <RenderAlertMessage />
     </div>

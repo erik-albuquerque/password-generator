@@ -19,16 +19,15 @@ type NodeButtonProps = Overwrite<
 const NodeButton: React.FC<NodeButtonProps> = ({ data }: NodeButtonProps) => {
   return (
     <>
-      <button
-        type='button'
+      <div
         className={cn(
-          'flex flex-row items-center gap-1 font-medium text-white transition-colors rounded-full',
+          'flex flex-row items-center gap-1 font-medium text-white transition-colors',
           data.className
         )}
         onClick={data?.action}
       >
         {data.children}
-      </button>
+      </div>
 
       {data.dots.map((dot) => (
         <DotHandle
