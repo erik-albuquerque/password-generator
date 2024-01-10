@@ -47,7 +47,7 @@ const CopyToClipboard = () => {
         <AlertMessage
           type='success'
           label={password}
-          onClose={() => setIsSuccess(false)}
+          onClick={() => setIsSuccess(false)}
           className='-bottom-10'
         />
       )
@@ -58,7 +58,7 @@ const CopyToClipboard = () => {
         <AlertMessage
           type='error'
           label={error}
-          onClose={() => setError('')}
+          onClick={() => setError('')}
           className='-bottom-10'
         />
       )
