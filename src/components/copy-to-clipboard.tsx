@@ -1,15 +1,13 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 
-import { passwordState } from '../../recoil'
-import { CopyIcon } from '../icons'
-import { MessageTag } from './components'
+import { passwordState } from '../recoil'
+import { AlertMessage } from './alert-message'
+import { CopyIcon } from './icons'
 
-const MESSAGE_TAG_TIMEOUT_MS = 2000 // 2s
+const ALERT_MESSAGE_TIMEOUT_MS = 2000 // 2s
 
 const CopyToClipboard = () => {
-  const messageTagTimeoutIdRef = useRef<number>()
-
   const password = useRecoilValue(passwordState)
 
   const [error, setError] = useState('')
@@ -35,18 +33,18 @@ const CopyToClipboard = () => {
   useEffect(() => {
     if (!isSuccess) return
 
-    messageTagTimeoutIdRef.current = setTimeout(
+    const alertMessageTimeout = setTimeout(
       () => setIsSuccess(false),
-      MESSAGE_TAG_TIMEOUT_MS
+      ALERT_MESSAGE_TIMEOUT_MS
     )
 
-    return () => clearTimeout(messageTagTimeoutIdRef.current)
+    return () => clearTimeout(alertMessageTimeout)
   }, [setIsSuccess, isSuccess])
 
-  const RenderMessageTag = () => {
+  const RenderAlertMessage = () => {
     if (isSuccess) {
       return (
-        <MessageTag
+        <AlertMessage
           type='success'
           label={password}
           onClose={() => setIsSuccess(false)}
@@ -57,7 +55,7 @@ const CopyToClipboard = () => {
 
     if (error) {
       return (
-        <MessageTag
+        <AlertMessage
           type='error'
           label={error}
           onClose={() => setError('')}
@@ -80,7 +78,7 @@ const CopyToClipboard = () => {
         <span className='font-medium'>Copy</span>
       </div>
 
-      <RenderMessageTag />
+      <RenderAlertMessage />
     </div>
   )
 }

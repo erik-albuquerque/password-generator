@@ -11,7 +11,12 @@ import {
   PasswordStrengthEmoji,
   SimpleBezierEdge
 } from '../components'
-import { NodeButton, NodeLabel, NodeLogo, NodeRectangle } from '../components/nodes'
+import {
+  NodeButton,
+  NodeLabel,
+  NodeLogo,
+  NodeRectangle
+} from '../components/nodes'
 import { NodeCustomProps } from '../types'
 
 const NODE_TYPES = {
@@ -276,7 +281,8 @@ const useFlow = () => {
         y: 279
       },
       data: {
-        className: 'bg-purple-500 hover:bg-purple-500/90',
+        className:
+          'bg-purple-500 hover:bg-purple-500/90',
         children: <GeneratePasswordButton />,
         dots: [
           {
