@@ -2,41 +2,23 @@ import { useCallback, useState } from 'react'
 import { Grid } from 'react-loader-spinner'
 import { useSetRecoilState } from 'recoil'
 
-import { addonsState } from '../recoil'
-import { Addons } from '../types'
-import { cn, delay } from '../utils'
+import { addonsState } from '../../recoil'
+import { cn,delay } from '../../utils'
+import { generateRandomAddons } from './utils/generate-random-addons'
 
 const GenerateRandomAddonsButton = () => {
   const setAddons = useSetRecoilState(addonsState)
 
   const [isLoading, setIsLoading] = useState(false)
 
-  const getRandomAddons = useCallback((): Addons => {
-    const ADDONS: Addons = ['Numbers', 'Lowercase', 'Uppercase', 'Symbols']
-
-    const randomLength = Math.floor(Math.random() * ADDONS.length) + 1
-
-    const [...randomAddons] = ADDONS.sort(() => Math.random() - 0.5).slice(
-      0,
-      randomLength
-    )
-
-    return randomAddons
-  }, [])
-
-  const handleGenerateAddons = useCallback(async () => {
+  const handleGenerateRandomAddons = useCallback(async () => {
     if (isLoading) return
-
     setIsLoading(true)
-
-    await delay(500)
-
-    const randomAddons = getRandomAddons()
-
+    await delay(500) // 500 ms
+    const randomAddons = generateRandomAddons()
     setAddons(randomAddons)
-
     setIsLoading(false)
-  }, [getRandomAddons, isLoading, setAddons])
+  }, [isLoading, setAddons])
 
   return (
     <button
@@ -47,7 +29,7 @@ const GenerateRandomAddonsButton = () => {
         isLoading && 'w-[92.48px] h-[48px]'
       )}
       disabled={isLoading}
-      onClick={handleGenerateAddons}
+      onClick={handleGenerateRandomAddons}
     >
       {isLoading ? <Grid color='#fff' width={20} /> : <span>Random</span>}
     </button>
