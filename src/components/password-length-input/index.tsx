@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { useRecoilState } from 'recoil'
 
 import { errorsState, passwordLengthState } from '../../recoil'
@@ -19,11 +19,13 @@ const PasswordLengthInput: React.FC<PasswordLengthInputProps> = ({
   min = MIN_PASSWORD_LENGTH,
   max = MAX_PASSWORD_LENGTH
 }: PasswordLengthInputProps) => {
+  const [shouldShowInputError, setShouldShowInputError] = useState(false)
+
   const [errors, setErrors] = useRecoilState(errorsState)
   const [passwordLength, setPasswordLength] =
     useRecoilState(passwordLengthState)
 
-  const handleResetInputError = () => setErrors(null)
+  const handleResetInputError = () => setShouldShowInputError(false)
 
   const verifyPasswordLength = (length: number) => {
     if (length < MIN_PASSWORD_LENGTH || length > MAX_PASSWORD_LENGTH) {
@@ -31,14 +33,18 @@ const PasswordLengthInput: React.FC<PasswordLengthInputProps> = ({
         type: 'input-length-error',
         message: INPUT_ERROR_MESSAGE
       })
-    } else handleResetInputError()
+      setShouldShowInputError(true)
+    } else {
+      handleResetInputError()
+      setErrors(null)
+    }
   }
 
   const onPasswordLengthChange = (event: ChangeEvent<HTMLInputElement>) => {
     const length = event.target.valueAsNumber
 
     if (length < 0 || length > max + 1) return
-    
+
     verifyPasswordLength(length)
     setPasswordLength(length)
   }
@@ -54,7 +60,7 @@ const PasswordLengthInput: React.FC<PasswordLengthInputProps> = ({
         className='font-medium max-w-[35px] text-center'
       />
 
-      {errors?.type === 'input-length-error' && (
+      {shouldShowInputError && errors?.type === 'input-length-error' && (
         <AlertMessage
           type='error'
           label={errors.message}
