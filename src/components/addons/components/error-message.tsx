@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { addonsState } from '../../../recoil'
+import { addonsState, errorsState } from '../../../recoil'
 import { AlertMessage } from '../../alert-message'
 
 const ERROR_MESSAGE_LABEL =
@@ -9,17 +9,23 @@ const ERROR_MESSAGE_LABEL =
 
 const ErrorMessage: React.FC = () => {
   const [addons] = useRecoilState(addonsState)
-  const [shouldShowErrorMessage, setShouldShowErrorMessage] = useState(false)
+  const [errors, setErrors] = useRecoilState(errorsState)
 
   const handleCloseErrorMessage = useCallback(() => {
-    setShouldShowErrorMessage(false)
-  }, [])
+    setErrors(null)
+  }, [setErrors])
 
   useEffect(() => {
-    setShouldShowErrorMessage(addons.length === 0)
+    if (addons.length === 0) {
+      setErrors({
+        type: 'empty-addons',
+        message: ERROR_MESSAGE_LABEL
+      })
+    } else setErrors(null)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addons])
 
-  return shouldShowErrorMessage ? (
+  return errors?.type === 'empty-addons' ? (
     <AlertMessage
       type='error'
       className='-top-28 -left-12 text-white'

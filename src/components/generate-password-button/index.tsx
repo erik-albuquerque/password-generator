@@ -2,11 +2,18 @@ import { useCallback, useState } from 'react'
 import { Grid } from 'react-loader-spinner'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-import { addonsState, passwordLengthState, passwordState } from '../../recoil'
+import {
+  addonsState,
+  errorsState,
+  passwordLengthState,
+  passwordState
+} from '../../recoil'
 import { cn, delay } from '../../utils'
 import { generatePassword } from './utils/generate-password'
 
+// is loading disabled
 const GeneratePasswordButton: React.FC = () => {
+  const errors = useRecoilValue(errorsState)
   const [isLoading, setIsLoading] = useState(false)
 
   const addons = useRecoilValue(addonsState)
@@ -28,12 +35,12 @@ const GeneratePasswordButton: React.FC = () => {
     <button
       type='button'
       className={cn(
-        'py-3 px-4 flex items-center rounded-full justify-center bg-purple-500 hover:bg-purple-500/90',
-        'disabled:cursor-not-allowed disabled:bg-red-400/90',
+        'py-3 px-4 flex items-center rounded-full justify-center bg-purple-500 hover:bg-purple-500/90 transition-colors',
+        'disabled:cursor-not-allowed disabled:bg-red-400 disabled:opacity-70',
         isLoading && 'w-[98.72px] h-12 cursor-not-allowed'
       )}
       onClick={handleGeneratePassword}
-      disabled={isAddonsEmpty}
+      disabled={isLoading || isAddonsEmpty || errors?.type === 'input-length-error'}
     >
       {isLoading ? <Grid color='#fff' width={20} /> : <span>Generate</span>}
     </button>

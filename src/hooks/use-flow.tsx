@@ -363,7 +363,7 @@ const useFlow = () => {
         y: 432
       },
       data: {
-        className: '!py-3 !px-2',
+        className: 'py-3 px-2',
         children: <PasswordLengthInput min={1} max={100} />,
         dots: [
           {
