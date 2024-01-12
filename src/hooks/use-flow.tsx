@@ -6,7 +6,7 @@ import {
   DefaultEdge,
   GeneratePasswordButton,
   GenerateRandomAddonsButton,
-  PasswordLabel,
+  HighlightedPassword,
   PasswordLengthInput,
   PasswordStrengthEmoji,
   SimpleBezierEdge
@@ -250,7 +250,7 @@ const useFlow = () => {
         title: 'Password',
         headerStyle: 'mt-2',
         className: 'items-center',
-        children: <PasswordLabel />,
+        children: <HighlightedPassword />,
         dots: [
           {
             id: 'edge-0',

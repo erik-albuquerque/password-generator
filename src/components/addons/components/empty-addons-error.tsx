@@ -10,6 +10,7 @@ const EMPTY_ADDONS_ERROR_MESSAGE =
 const EmptyAddonsError: React.FC = () => {
   const [addons] = useRecoilState(addonsState)
   const [globalErrors, setGlobalErrors] = useRecoilState(globalErrorsState)
+  const isEmptyAddons = globalErrors?.type === 'empty-addons'
 
   const handleCloseErrorMessage = useCallback(() => {
     setGlobalErrors(null)
@@ -25,7 +26,7 @@ const EmptyAddonsError: React.FC = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [addons])
 
-  return globalErrors?.type === 'empty-addons' ? (
+  return isEmptyAddons ? (
     <Toast.Root type='error' className='-top-32 -left-5 text-white'>
       <Toast.Title>Empty addons</Toast.Title>
       <Toast.Description className='font-medium break-all max-w-[270px]'>

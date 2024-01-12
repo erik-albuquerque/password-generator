@@ -5,9 +5,9 @@ import { passwordState } from '../../recoil'
 import { cn } from '../../utils'
 import { getNumbers, getSymbols, getUppercases } from './utils'
 
-type PasswordLabelProps = {}
+type HighlightedPasswordProps = {}
 
-const PasswordLabel: React.FC<PasswordLabelProps> = () => {
+const HighlightedPassword: React.FC<HighlightedPasswordProps> = () => {
   const password = useRecoilValue(passwordState)
 
   const uppercases = getUppercases(password)
@@ -16,7 +16,7 @@ const PasswordLabel: React.FC<PasswordLabelProps> = () => {
 
   const numbers = getNumbers(password)
 
-  const passwordWithStyles = [...password].map((char, index) => {
+  const highlightedPassword = [...password].map((char, index) => {
     const isSymbol = symbols.some(({ position }) => position === index)
 
     const isUppercase = uppercases.some(({ position }) => position === index)
@@ -40,9 +40,9 @@ const PasswordLabel: React.FC<PasswordLabelProps> = () => {
 
   return (
     <div className='flex items-center justify-center flex-wrap text-gray-400 w-full max-w-[250px]'>
-      {passwordWithStyles}
+      {highlightedPassword}
     </div>
   )
 }
 
-export { PasswordLabel }
+export { HighlightedPassword }
