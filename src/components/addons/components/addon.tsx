@@ -1,6 +1,6 @@
-import { useRecoilCallback, useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilCallback, useRecoilValue } from 'recoil'
 
-import { addonsState, errorsState } from '../../../recoil'
+import { addonsState, globalErrorsState } from '../../../recoil'
 import { Addon as AddonTypes } from '../../../types'
 import { cn } from '../../../utils'
 
@@ -10,9 +10,11 @@ type AddonProps = {
 }
 
 const Addon: React.FC<AddonProps> = ({ type, children }: AddonProps) => {
-  const errors = useRecoilValue(errorsState)
-  const [addons] = useRecoilState(addonsState)
+  const globalErrors = useRecoilValue(globalErrorsState)
+  const addons = useRecoilValue(addonsState)
+
   const isActive = addons.includes(type)
+  const isPasswordLengthError = globalErrors?.type === 'password-length-error'
 
   const handleToggleAddon = useRecoilCallback(
     ({ set }) =>
@@ -35,7 +37,7 @@ const Addon: React.FC<AddonProps> = ({ type, children }: AddonProps) => {
         isActive && 'bg-gray-700'
       )}
       onClick={handleToggleAddon}
-      disabled={errors?.type === 'input-length-error'}
+      disabled={isPasswordLengthError}
     >
       {children}
     </button>

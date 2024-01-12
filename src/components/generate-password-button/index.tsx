@@ -4,7 +4,7 @@ import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import {
   addonsState,
-  errorsState,
+  globalErrorsState,
   passwordLengthState,
   passwordState
 } from '../../recoil'
@@ -13,13 +13,14 @@ import { generatePassword } from './utils/generate-password'
 
 // is loading disabled
 const GeneratePasswordButton: React.FC = () => {
-  const errors = useRecoilValue(errorsState)
+  const globalErrors = useRecoilValue(globalErrorsState)
   const [isLoading, setIsLoading] = useState(false)
 
   const addons = useRecoilValue(addonsState)
   const passwordLength = useRecoilValue(passwordLengthState)
   const setPassword = useSetRecoilState(passwordState)
   const isAddonsEmpty = addons.length === 0
+  const isPasswordLengthError = globalErrors?.type === 'password-length-error'
 
   const handleGeneratePassword = useCallback(async () => {
     if (isLoading || isAddonsEmpty) return
@@ -40,7 +41,7 @@ const GeneratePasswordButton: React.FC = () => {
         isLoading && 'w-[98.72px] h-12 cursor-not-allowed'
       )}
       onClick={handleGeneratePassword}
-      disabled={isLoading || isAddonsEmpty || errors?.type === 'input-length-error'}
+      disabled={isLoading || isAddonsEmpty || isPasswordLengthError}
     >
       {isLoading ? <Grid color='#fff' width={20} /> : <span>Generate</span>}
     </button>

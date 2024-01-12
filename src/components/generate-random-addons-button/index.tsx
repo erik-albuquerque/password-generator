@@ -2,15 +2,16 @@ import { useCallback, useState } from 'react'
 import { Grid } from 'react-loader-spinner'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
-import { addonsState, errorsState } from '../../recoil'
+import { addonsState, globalErrorsState } from '../../recoil'
 import { cn, delay } from '../../utils'
 import { generateRandomAddons } from './utils/generate-random-addons'
 
 const GenerateRandomAddonsButton = () => {
-  const errors = useRecoilValue(errorsState)
-  const setAddons = useSetRecoilState(addonsState)
-
   const [isLoading, setIsLoading] = useState(false)
+
+  const globalErrors = useRecoilValue(globalErrorsState)
+  const setAddons = useSetRecoilState(addonsState)
+  const isPasswordLengthError = globalErrors?.type === 'password-length-error'
 
   const handleGenerateRandomAddons = useCallback(async () => {
     if (isLoading) return
@@ -30,7 +31,7 @@ const GenerateRandomAddonsButton = () => {
         isLoading && 'w-[92.48px] h-12 cursor-not-allowed'
       )}
       onClick={handleGenerateRandomAddons}
-      disabled={isLoading || errors?.type === 'input-length-error'}
+      disabled={isLoading || isPasswordLengthError}
     >
       {isLoading ? <Grid color='#fff' width={20} /> : <span>Random</span>}
     </button>
