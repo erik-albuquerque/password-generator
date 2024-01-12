@@ -1,4 +1,4 @@
-import { ErrorMessage } from './components/error-message'
+import { EmptyAddonsError } from './components/empty-addons-error'
 import { FactoryAddons } from './components/factory-addons'
 
 const Addons: React.FC = () => {
@@ -6,7 +6,7 @@ const Addons: React.FC = () => {
     <div className='relative'>
       <FactoryAddons />
 
-      <ErrorMessage />
+      <EmptyAddonsError />
     </div>
   )
 }

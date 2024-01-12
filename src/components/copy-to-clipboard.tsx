@@ -2,10 +2,10 @@ import { useCallback, useEffect, useState } from 'react'
 import { useRecoilValue } from 'recoil'
 
 import { passwordState } from '../recoil'
-import { AlertMessage } from './alert-message'
 import { CopyIcon } from './icons'
+import { Toast } from './toast'
 
-const ALERT_MESSAGE_TIMEOUT_MS = 2000 // 2s
+const TOAST_MESSAGE_TIMEOUT_MS = 3000 // 3s
 
 const CopyToClipboard = () => {
   const password = useRecoilValue(passwordState)
@@ -33,34 +33,36 @@ const CopyToClipboard = () => {
   useEffect(() => {
     if (!isSuccess) return
 
-    const alertMessageTimeout = setTimeout(
+    const toastMessageTimeout = setTimeout(
       () => setIsSuccess(false),
-      ALERT_MESSAGE_TIMEOUT_MS
+      TOAST_MESSAGE_TIMEOUT_MS
     )
 
-    return () => clearTimeout(alertMessageTimeout)
+    return () => clearTimeout(toastMessageTimeout)
   }, [setIsSuccess, isSuccess])
 
-  const RenderAlertMessage = () => {
+  const RenderToastMessage = () => {
     if (isSuccess) {
       return (
-        <AlertMessage
-          type='success'
-          label={password}
-          onClick={() => setIsSuccess(false)}
-          className='-bottom-10'
-        />
+        <Toast.Root type='success' className='-bottom-16'>
+          <Toast.Title>Copy to clipboard</Toast.Title>
+          <Toast.Description className='font-bold break-all truncate max-w-[250px]'>
+            {password}
+          </Toast.Description>
+          <Toast.Close onClick={() => setIsSuccess(false)} />
+        </Toast.Root>
       )
     }
 
     if (error) {
       return (
-        <AlertMessage
-          type='error'
-          label={error}
-          onClick={() => setError('')}
-          className='-bottom-10'
-        />
+        <Toast.Root type='error' className='-bottom-16'>
+          <Toast.Title>Error on copy to clipboard</Toast.Title>
+          <Toast.Description className='font-bold break-all truncate'>
+            {error}
+          </Toast.Description>
+          <Toast.Close onClick={() => setError('')} />
+        </Toast.Root>
       )
     }
 
@@ -79,7 +81,7 @@ const CopyToClipboard = () => {
         <span className='font-medium'>Copy</span>
       </button>
 
-      <RenderAlertMessage />
+      <RenderToastMessage />
     </div>
   )
 }

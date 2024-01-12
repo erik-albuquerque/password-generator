@@ -1,5 +1,4 @@
 export * from './addons'
-export * from './alert-message'
 export * from './copy-to-clipboard'
 export * from './edges'
 export * from './generate-password-button'

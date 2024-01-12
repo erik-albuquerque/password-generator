@@ -3,6 +3,7 @@ import { useRecoilState } from 'recoil'
 
 import { globalErrorsState, passwordLengthState } from '../../recoil'
 import { Input } from '../input'
+import { Toast } from '../toast'
 import {
   INPUT_ERROR_MESSAGE,
   MAX_PASSWORD_LENGTH,
@@ -61,13 +62,14 @@ const PasswordLengthInput: React.FC<PasswordLengthInputProps> = ({
         className='font-medium max-w-[35px] text-center'
       />
 
-      {shouldShowInputError && errors?.type === 'input-length-error' && (
-        <AlertMessage
-          type='error'
-          label={errors.message}
-          onClick={handleResetInputError}
-          className='-left-80'
-        />
+      {shouldShowInputError && isPasswordLengthError && (
+        <Toast.Root type='error' className='-left-[340px]'>
+          <Toast.Title>Password length error</Toast.Title>
+          <Toast.Description className='break-all max-w-[260px]'>
+            {globalErrors.message}
+          </Toast.Description>
+          <Toast.Close onClick={handleResetInputError} />
+        </Toast.Root>
       )}
     </Input.Root>
   )

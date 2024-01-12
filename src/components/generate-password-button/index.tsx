@@ -11,7 +11,6 @@ import {
 import { cn, delay } from '../../utils'
 import { generatePassword } from './utils/generate-password'
 
-// is loading disabled
 const GeneratePasswordButton: React.FC = () => {
   const globalErrors = useRecoilValue(globalErrorsState)
   const [isLoading, setIsLoading] = useState(false)
