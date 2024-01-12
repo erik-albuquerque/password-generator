@@ -1,3 +1,4 @@
+export * from './action-button'
 export * from './addons'
 export * from './copy-to-clipboard'
 export * from './edges'

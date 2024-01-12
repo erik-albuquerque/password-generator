@@ -1,5 +1,4 @@
 import { useCallback, useState } from 'react'
-import { Grid } from 'react-loader-spinner'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import {
@@ -8,7 +7,8 @@ import {
   passwordLengthState,
   passwordState
 } from '../../recoil'
-import { cn, delay } from '../../utils'
+import { delay } from '../../utils'
+import { ActionButton } from '../action-button'
 import { generatePassword } from './utils/generate-password'
 
 const GeneratePasswordButton: React.FC = () => {
@@ -32,18 +32,13 @@ const GeneratePasswordButton: React.FC = () => {
   }, [addons, isLoading, isAddonsEmpty, passwordLength])
 
   return (
-    <button
-      type='button'
-      className={cn(
-        'py-3 px-4 flex items-center rounded-full justify-center bg-purple-500 hover:bg-purple-500/90 transition-colors',
-        'disabled:cursor-not-allowed disabled:bg-red-400 disabled:opacity-70',
-        isLoading && 'w-[98.72px] h-12 cursor-not-allowed'
-      )}
+    <ActionButton
       onClick={handleGeneratePassword}
       disabled={isLoading || isAddonsEmpty || isPasswordLengthError}
+      isLoading={isLoading}
     >
-      {isLoading ? <Grid color='#fff' width={20} /> : <span>Generate</span>}
-    </button>
+      Generate
+    </ActionButton>
   )
 }
 

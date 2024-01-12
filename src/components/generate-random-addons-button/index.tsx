@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react'
-import { Grid } from 'react-loader-spinner'
 import { useRecoilValue, useSetRecoilState } from 'recoil'
 
 import { addonsState, globalErrorsState } from '../../recoil'
-import { cn, delay } from '../../utils'
+import { delay } from '../../utils'
+import { ActionButton } from '../action-button'
 import { generateRandomAddons } from './utils/generate-random-addons'
 
 const GenerateRandomAddonsButton = () => {
@@ -23,18 +23,13 @@ const GenerateRandomAddonsButton = () => {
   }, [isLoading, setAddons])
 
   return (
-    <button
-      type='button'
-      className={cn(
-        'py-3 px-4 flex items-center justify-center rounded-full bg-purple-500 hover:bg-purple-500/90 transition-colors',
-        'disabled:cursor-not-allowed disabled:bg-red-400 disabled:opacity-70',
-        isLoading && 'w-[92.48px] h-12 cursor-not-allowed'
-      )}
+    <ActionButton
       onClick={handleGenerateRandomAddons}
       disabled={isLoading || isPasswordLengthError}
+      isLoading={isLoading}
     >
-      {isLoading ? <Grid color='#fff' width={20} /> : <span>Random</span>}
-    </button>
+      Random
+    </ActionButton>
   )
 }
 
