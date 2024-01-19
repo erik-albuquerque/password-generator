@@ -43,9 +43,9 @@ const PasswordLengthInput: React.FC<PasswordLengthInputProps> = ({
   }
 
   const onPasswordLengthChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const length = event.target.valueAsNumber
+    const length = Number(event.target.value) ?? 0
 
-    if (length < 0 || length > max + 1) return
+    if (length > max + 1) return
 
     verifyPasswordLength(length)
     setPasswordLength(length)
